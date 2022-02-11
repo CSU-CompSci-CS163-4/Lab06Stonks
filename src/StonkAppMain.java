@@ -5,35 +5,38 @@ public class StonkAppMain {
     Wallet w = new Wallet();
 
     public void go(){
+        view.startScreen();
+        String walletChoice = view.getAction("Would you like to start with the default wallet, or enter your own?\n" +
+                "Enter [d]efault or [c]ustom: ");
+        if(walletChoice.startsWith("d")){
+            w = new Wallet();
+        }
+        else{
+            int fazCoin = Integer.parseInt(view.getAction("So you want to invest more!\n"
+                    + "How much FezCoin do you already own? "));
+            double usd = Double.parseDouble(view.getAction("How much money in USD do you plan to work with? "));
+            w = new Wallet(fazCoin, usd);
+        }
         view.printMenu();
-        System.out.println(String.format("You currently own %d FazCoin, worth $%.2f USD.", w.getFazCoin(), sm.fazCoinToUSD(w.getFazCoin())));
-        System.out.println(String.format("Current exchange rate for FazCoin is %.2f USD per 100 FazCoin.", sm.changeExchangeRate()));
-        System.out.println();
-        System.out.println("What would you like to do? ");
-        String action = view.getAction();
+        view.walletInfo(w, sm);
+        String action = view.getAction("What would you like to do? ");
         while(!action.startsWith("x")) {
             if(action.startsWith("b")) {
-                System.out.println("How much FazCoin would you like to buy?");
-                int num = Integer.parseInt(view.getAction());
-                //TODO student
-
+                int num = Integer.parseInt(view.getAction("How much FazCoin would you like to buy? "));
+                purchaseFazCoin(num);
             }
             else if(action.startsWith("s")) {
-                System.out.println("How much FazCoin would you like to sell?");
-                int num = Integer.parseInt(view.getAction());
-                //TODO student
-
+                int num = Integer.parseInt(view.getAction("How much FazCoin would you like to sell? "));
+                sellFazCoin(num);
             }
-            else if(action.startsWith("n") || action.startsWith("d")){ }
+            else if(action.startsWith("n") || action.startsWith("d")){
+                //Don't do anything
+            }
             else{
                 System.out.println("Please enter a valid command.");
             }
-            System.out.println(String.format("You currently own %d FazCoin, worth $%.2f USD.", w.getFazCoin(), sm.fazCoinToUSD(w.getFazCoin())));
-            System.out.println(String.format("Current exchange rate for FazCoin is %.2f USD per 100 FazCoin.", sm.changeExchangeRate()));
-            System.out.println(String.format("You have $%.2f in your wallet.", w.getUSDollars()));
-            System.out.println();
-            System.out.println("What would you like to do? ");
-            action = view.getAction();
+            view.walletInfo(w, sm);
+            action = view.getAction("What would you like to do? ");
         }
     }
 

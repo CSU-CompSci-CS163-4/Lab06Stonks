@@ -1,6 +1,6 @@
 public class Wallet {
 
-    private int fazCoin = 500;
-    private double USDollars = 5;
+    private int fazCoin;
+    private double USDollars;
 
 }
