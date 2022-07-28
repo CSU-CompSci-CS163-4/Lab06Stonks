@@ -2,10 +2,10 @@
 In this lab, you will create a program that models a stock market based around the fictional cryptocurrency FazCoin.
 
 ## Step 1: Self-Explanation
-Using the UML diagram and the [javadoc](http://www.cs.colostate.edu/~cs163/javadoc/lab06/package-summary.html), explain *in your own words* what is happening in `go()`. Put some comments above the different methods being called so that before you start coding, you know the big picture of how the game is going to work.
+Using the UML diagram and the [javadoc](https://csu-compsci-cs163-4.github.io/Lab06Stonks/package-summary.html), explain *in your own words* what is happening in `go()`. Put some comments above the different methods being called so that before you start coding, you know the big picture of how the game is going to work.
 
 ## Step 2: Coding
-Take a look at the [javadoc](http://www.cs.colostate.edu/~cs163/javadoc/lab06/package-summary.html). Implement all methods, constructors, and vairables listed for each class. Some have already been provided for you, some you will need to write yourself. Make sure to test your methods as you complete each one. 
+Take a look at the [javadoc](https://csu-compsci-cs163-4.github.io/Lab06Stonks/package-summary.html). Implement all methods, constructors, and vairables listed for each class. Some have already been provided for you, some you will need to write yourself. Make sure to test your methods as you complete each one. 
 
 ## Step 3: Playtest
 Now that you have completed the methods and tested them individuallly, it is time to playtest the program in its entirety.
